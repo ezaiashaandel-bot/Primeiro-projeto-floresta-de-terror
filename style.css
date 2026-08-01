@@ -1,1 +1,89 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #020202; /* Fundo super escuro */
+}
 
+.hidden {
+  display: none !important;
+}
+
+/* 🌲 A Floresta ao fundo (Balançando com o vento) */
+#background-forest {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Quando você tiver a imagem, coloque o nome dela abaixo: */
+  background-image: url('assets/arvores-pixel.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  /* Animação para balançar bruscamente */
+  animation: windShake 3s infinite;
+}
+
+@keyframes windShake {
+  0% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-1deg); }
+  50% { transform: translateX(0) rotate(0deg); }
+  75% { transform: translateX(8px) rotate(1deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+/* ⚡ O Clarão do Trovão */
+#lightning-flash {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: white;
+  opacity: 0; /* Invisível por padrão */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Classe ativada pelo JavaScript para piscar */
+.flash-active {
+  animation: lightningAnim 0.5s ease-out;
+}
+
+@keyframes lightningAnim {
+  0% { opacity: 0; }
+  10% { opacity: 0.8; }
+  20% { opacity: 0; }
+  30% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* 🌫️ Efeito Fume (Névoa/Escuridão nas bordas) */
+#fog-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0) 20%, rgba(0,0,0,0.85) 80%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 🩸 Menu e Botão Start */
+#start-menu {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4; /* Fica na frente de tudo */
+}
+
+#btn-start {
+  font-family: 'Nosifer', cursive; /* Fonte de sangue escorrendo */
+  font-size: 5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  transition: 0.3s;
+}
+
+#btn-start:hover {
+  color: #8b0000; /* Fica vermelho sangue ao passar o mouse */
+  text-shadow: 0px 0px 30px #ff0000;
+  transform: scale(1.1);
+  }
